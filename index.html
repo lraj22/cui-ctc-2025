@@ -1,0 +1,39 @@
+<!-- Hi there! -->
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Security Demo | CUI CTC 2025</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body class="state-username">
+		<div id="usernameBox" class="box">
+			<h1>The _na App</h1>
+			<label for="username">Username/email: </label><input type="text" id="username">
+			<br><br>
+			<div class="g-recaptcha" data-sitekey="6LcMDP0qAAAAAOwVBUYyrMnV84LjtLmF8OlvXdv7"></div>
+			<br>
+			<button type="button" id="toFactor" data-to="factor">Continue</button>
+		</div>
+		<div id="factorBox" class="box">
+			<h1>The _na App</h1>
+			<p class="linklike" data-to="username">Go back</p>
+			<button type="button" id="toAuth">Sign in with auth app</button><br><br>
+			<button type="button" id="toHSK">Sign in with hardware security key</button><br><br>
+			<button type="button" id="toPasskey">Sign in with passkey</button><br><br>
+			<button type="button" id="toOTP">Get an OTP</button><br><br>
+			<button type="button" id="toPassword">Sign in with your password</button><br><br>
+			<p>Can't sign in? <a href="./recovery.html">Enter a backup code</a></p>
+		</div>
+		<div class="box" id="authBox">
+			<h1>The _na App</h1>
+			<p class="linklike" data-to="factor">Go back</p>
+			<p>Type the six digit code you see on your authentication app.</p>
+			<input type="number" id="sixDigits"><br><br>
+			<button type="button" id="submitSixDigits">Submit</button>
+		</div>
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+		<script src="script.js"></script>
+	</body>
+</html>

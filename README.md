@@ -1,1 +1,3 @@
-# cui-ctc-2025
+# The _na App
+
+Made with ❤️ by Lakshya Raj, Hung Nguyen, and Amogh Adluri.

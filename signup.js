@@ -8,15 +8,16 @@ document.querySelectorAll("[data-to]").forEach(function (el) {
 	});
 });
 
+var firstSuccess = false;
+
 var emailDomainList = ["gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "icloud.com"];
-if(0)toOTP.addEventListener("click", function () {
-	var givenUsername = username.value || "a user";
-	document.body.className = "state-otp";
-	otpDigits.focus();
-	email.textContent = givenUsername.slice(0)[0] + "******" + givenUsername.slice(-1)[0] + "@" + emailDomainList[givenUsername.split("").map(function (c) { return c.charCodeAt(0); }).reduce(function (acc, curr) { return acc + curr; }, 0) % emailDomainList.length];
+toHsk.addEventListener("click", function () {
+	var givenEmail = email.value.split("@")[0];
+	emailObscured.textContent = (givenEmail.slice(0) || "*")[0] + "******" + (givenEmail.slice(-1) || "*")[0] + "@" + emailDomainList[givenEmail.split("").map(function (c) { return c.charCodeAt(0); }).reduce(function (acc, curr) { return acc + curr; }, 0) % emailDomainList.length];
+	usersname.textContent = displayName.value || "my friend";
 });
 
-toHsk.addEventListener("click", async function () {
+addHsk.addEventListener("click", async function () {
 	await requestHSK();
 	document.body.className = "state-auth";
 });
@@ -32,7 +33,8 @@ submitSixDigits.addEventListener("click", function () {
 		return;
 	}
 	if (code.match(/^\d*7\d*2\d*$/) !== null) {
-		giveAccess();
+		document.body.className = firstSuccess ? "state-end" : "state-otp";
+		firstSuccess = true;
 	} else iziToast.error({ message: "Invalid code" } );
 });
 
@@ -43,7 +45,8 @@ submitOtpDigits.addEventListener("click", function () {
 		return;
 	}
 	if (code.match(/^\d*7\d*2\d*$/) !== null) {
-		giveAccess();
+		document.body.className = firstSuccess ? "state-end" : "state-password";
+		firstSuccess = true;
 	} else iziToast.error({ message: "Invalid code" } );
 });
 
@@ -53,11 +56,7 @@ submitPassword.addEventListener("click", function () {
 		iziToast.error({ message: "Password too short" });
 		return;
 	}
-	if (username.value && (pwd.indexOf(username.value) === -1)) {
-		iziToast.error({ message: "Incorrect password" });
-		return;
-	}
-	giveAccess();
+	document.body.className = "state-end";
 });
 
 iziToast.settings({
@@ -107,6 +106,7 @@ async function actuallyRequestPasskey () {
 		}
 	});
 	document.body.className = "state-auth";
+	firstSuccess = true;
 } catch (e) {
 	iziToast.error({ message: "Passkey auth failed." });
 }

@@ -18,12 +18,13 @@
 			<br><br>
 			<div class="g-recaptcha" data-sitekey="6LcMDP0qAAAAAOwVBUYyrMnV84LjtLmF8OlvXdv7"></div><br>
 			<button type="button" id="toHsk" data-to="hsk">Continue</button>
+			<p>Already have an account? <a href="./login.html">Log in</a></p>
 		</div>
 		<div id="hskBox" class="box">
 			<h1>The _na App</h1>
 			<p class="linklike" data-to="basic">Go back</p>
 			<p>Do you have a hardware security key?<br>This is one of the most secure authentication methods!</p>
-			<button type="button" id="toHsk">Add Hardware Security Key</button><br><br>
+			<button type="button" id="addHsk">Add Hardware Security Key</button><br><br>
 			<button type="button" data-to="passkey">I don't have one</button>
 		</div>
 		<div id="passkeyBox" class="box">
@@ -35,25 +36,33 @@
 		</div>
 		<div class="box" id="authBox">
 			<h1>The _na App</h1>
-			<p class="linklike" data-to="factor">Go back</p>
+			<p class="linklike" data-to="hsk">Go back (HSK)</p>
+			<p class="linklike" data-to="passkey">Go back (passkey)</p>
 			<img src="./assets/qr-code.png" alt="Scan this code in your authenticator app of choice.">
 			<p>Type the six digit code you see on your authentication app.</p>
 			<input type="number" id="sixDigits"><br><br>
-			<button type="button" id="submitSixDigits">Submit</button>
+			<button type="button" id="submitSixDigits">Submit</button><br><br>
+			<button type="button" data-to="otp">Don't have an auth app</button>
 		</div>
 		<div class="box" id="otpBox">
 			<h1>The _na App</h1>
-			<p class="linklike" data-to="factor">Go back</p>
-			<p>Type the six digit code you see in the email we sent to <span id="email">********@gmail.com</span>.</p>
+			<p class="linklike" data-to="auth">Go back</p>
+			<p>Type the six digit code you see in the email we sent to <span id="emailObscured">********@gmail.com</span>.</p>
 			<input type="number" id="otpDigits"><br><br>
-			<button type="button" id="submitOtpDigits">Submit</button>
+			<button type="button" id="submitOtpDigits">Submit</button><br><br>
+			<button type="button" data-to="password">I can't right now</button>
 		</div>
 		<div class="box" id="passwordBox">
 			<h1>The _na App</h1>
-			<p class="linklike" data-to="factor">Go back</p>
-			<label for="password">Enter your password:</label>
+			<p class="linklike" data-to="otp">Go back</p>
+			<label for="password">Enter a password:</label>
 			<input type="password" id="password"><br><br>
 			<button type="button" id="submitPassword">Submit</button>
+		</div>
+		<div class="box" id="endBox">
+			<h1>The _na App</h1>
+			<p class="linklike" data-to="basic">Go back to start</p>
+			<p>You have successfully signed up, <span id="usersname">my friend</span>!</p>
 		</div>
 		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 		<script src="izitoast.js"></script>

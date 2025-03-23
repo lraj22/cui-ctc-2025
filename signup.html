@@ -1,0 +1,62 @@
+<!-- Hi there! -->
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Security Demo | CUI CTC 2025</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body class="state-basic">
+		<div id="basicBox" class="box">
+			<h1>The _na App</h1>
+			<label for="username">Username: </label><input type="text" id="username">
+			<br><br>
+			<label for="displayName">Display name: </label><input type="text" id="displayName">
+			<br><br>
+			<label for="email">Email: </label><input type="text" id="email">
+			<br><br>
+			<div class="g-recaptcha" data-sitekey="6LcMDP0qAAAAAOwVBUYyrMnV84LjtLmF8OlvXdv7"></div><br>
+			<button type="button" id="toHsk" data-to="hsk">Continue</button>
+		</div>
+		<div id="hskBox" class="box">
+			<h1>The _na App</h1>
+			<p class="linklike" data-to="basic">Go back</p>
+			<p>Do you have a hardware security key?<br>This is one of the most secure authentication methods!</p>
+			<button type="button" id="toHsk">Add Hardware Security Key</button><br><br>
+			<button type="button" data-to="passkey">I don't have one</button>
+		</div>
+		<div id="passkeyBox" class="box">
+			<h1>The _na App</h1>
+			<p class="linklike" data-to="hsk">Go back</p>
+			<p>Can you add a passkey? Passkeys are one of the most secure authentication methods!</p>
+			<button type="button" id="toPasskey">Add Passkey</button><br><br>
+			<button type="button" data-to="auth">I don't have one</button>
+		</div>
+		<div class="box" id="authBox">
+			<h1>The _na App</h1>
+			<p class="linklike" data-to="factor">Go back</p>
+			<img src="./assets/qr-code.png" alt="Scan this code in your authenticator app of choice.">
+			<p>Type the six digit code you see on your authentication app.</p>
+			<input type="number" id="sixDigits"><br><br>
+			<button type="button" id="submitSixDigits">Submit</button>
+		</div>
+		<div class="box" id="otpBox">
+			<h1>The _na App</h1>
+			<p class="linklike" data-to="factor">Go back</p>
+			<p>Type the six digit code you see in the email we sent to <span id="email">********@gmail.com</span>.</p>
+			<input type="number" id="otpDigits"><br><br>
+			<button type="button" id="submitOtpDigits">Submit</button>
+		</div>
+		<div class="box" id="passwordBox">
+			<h1>The _na App</h1>
+			<p class="linklike" data-to="factor">Go back</p>
+			<label for="password">Enter your password:</label>
+			<input type="password" id="password"><br><br>
+			<button type="button" id="submitPassword">Submit</button>
+		</div>
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+		<script src="izitoast.js"></script>
+		<script src="signup.js"></script>
+	</body>
+</html>

@@ -10,45 +10,7 @@
 	<body class="state-username">
 		<div id="usernameBox" class="box">
 			<h1>The _na App</h1>
-			<label for="username">Username/email: </label><input type="text" id="username">
-			<br><br>
-			<div class="g-recaptcha" data-sitekey="6LcMDP0qAAAAAOwVBUYyrMnV84LjtLmF8OlvXdv7"></div>
-			<br>
-			<button type="button" id="toFactor" data-to="factor">Continue</button>
+			<p>Go to the <a href="./login.html">login page</a> or the <a href="./signup.html">signup page.</a>.</p>
 		</div>
-		<div id="factorBox" class="box">
-			<h1>The _na App</h1>
-			<p class="linklike" data-to="username">Go back</p>
-			<button type="button" id="toAuth">Sign in with auth app</button><br><br>
-			<button type="button" id="toHSK">Sign in with hardware security key</button><br><br>
-			<button type="button" id="toPasskey">Sign in with passkey</button><br><br>
-			<button type="button" id="toOTP">Get an OTP</button><br><br>
-			<button type="button" id="toPassword">Sign in with your password</button><br><br>
-			<p>Can't sign in? <a href="./recovery.html">Enter a backup code</a></p>
-		</div>
-		<div class="box" id="authBox">
-			<h1>The _na App</h1>
-			<p class="linklike" data-to="factor">Go back</p>
-			<p>Type the six digit code you see on your authentication app.</p>
-			<input type="number" id="sixDigits"><br><br>
-			<button type="button" id="submitSixDigits">Submit</button>
-		</div>
-		<div class="box" id="otpBox">
-			<h1>The _na App</h1>
-			<p class="linklike" data-to="factor">Go back</p>
-			<p>Type the six digit code you see in the email we sent to <span id="email">********@gmail.com</span>.</p>
-			<input type="number" id="otpDigits"><br><br>
-			<button type="button" id="submitOtpDigits">Submit</button>
-		</div>
-		<div class="box" id="passwordBox">
-			<h1>The _na App</h1>
-			<p class="linklike" data-to="factor">Go back</p>
-			<label for="password">Enter your password:</label>
-			<input type="password" id="password"><br><br>
-			<button type="button" id="submitPassword">Submit</button>
-		</div>
-		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-		<script src="izitoast.js"></script>
-		<script src="script.js"></script>
 	</body>
 </html>
